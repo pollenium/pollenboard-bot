@@ -1,0 +1,19 @@
+{
+  "name": "pollenium-pollenboard-bot",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "forever index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "forever": "^1.0.0",
+    "isomorphic-ws": "^4.0.1",
+    "pollenium-anemone": "^1.0.2",
+    "tiny-worker": "^2.3.0",
+    "wrtc": "^0.4.2",
+    "ws": "^7.1.2"
+  }
+}
