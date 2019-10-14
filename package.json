@@ -9,7 +9,7 @@
   "dependencies": {
     "forever": "^1.0.0",
     "isomorphic-ws": "^4.0.1",
-    "pollenium-anemone": "^1.0.2",
+    "pollenium-anemone": "^2.0.0",
     "tiny-worker": "^2.3.0",
     "wrtc": "^0.4.2",
     "ws": "^7.1.2"
