@@ -10,7 +10,7 @@ const client = new pollenium.Client({
   ],
   bootstrapOffersTimeout: 0,
   signalTimeout: 5,
-  friendsMax: 6,
+  friendshipsMax: 6,
   Worker: Worker,
   WebSocket: WebSocket,
   wrtc: wrtc,
@@ -21,7 +21,7 @@ const applicationId = pollenium.Bytes.fromUtf8('pollenboard').getPaddedLeft(32)
 
 async function sendMessage() {
   console.log('sendMessage')
-  const friendMessageGenerator = new pollenium.FriendMessageGenerator(
+  const missiveGenerator = new pollenium.MissiveGenerator(
     client,
     applicationId,
     pollenium.Bytes.fromUtf8(
@@ -29,9 +29,9 @@ async function sendMessage() {
     ),
     8
   )
-  const friendMessage = await friendMessageGenerator.fetchFriendMessage()
+  const missive = await missiveGenerator.fetchMissive()
   console.log('broadcast')
-  friendMessage.broadcast()
+  missive.broadcast()
 }
 
 async function loopSendMessage() {
