@@ -49,3 +49,7 @@ async function loopSendMessage() {
 }
 
 loopSendMessage()
+
+setTimeout(() => {
+  throw new Error('Restart')
+}, 60000)
