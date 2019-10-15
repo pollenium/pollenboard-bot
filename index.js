@@ -2,6 +2,7 @@ const pollenium = require('pollenium-anemone/node/')
 const Worker = require('tiny-worker')
 const WebSocket = require('isomorphic-ws')
 const wrtc = require('wrtc')
+const delay = require('delay')
 
 const client = new pollenium.Client({
   signalingServerUrls: [
@@ -21,6 +22,7 @@ const applicationId = pollenium.Bytes.fromUtf8('pollenboard').getPaddedLeft(32)
 
 async function sendMessage() {
   console.log('sendMessage')
+  const startedAt = (new Date).getTime()
   const missiveGenerator = new pollenium.MissiveGenerator(
     client,
     applicationId,
@@ -32,6 +34,13 @@ async function sendMessage() {
   const missive = await missiveGenerator.fetchMissive()
   console.log('broadcast')
   missive.broadcast()
+
+  const broadcastAt = (new Date).getTime()
+  const ellapsedTime = broadcastAt - startedAt
+
+  if (ellapsedTime < 1000) {
+    await delay(1000 - ellapsedTime)
+  }
 }
 
 async function loopSendMessage() {
