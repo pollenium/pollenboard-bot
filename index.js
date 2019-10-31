@@ -29,7 +29,7 @@ async function sendMessage() {
     pollenium.Bytes.fromUtf8(
       `Hi! I'm a bot using client 0x${client.nonce.getHex().substr(0, 8)}. I wrote this message at ${(new Date).getTime()}.`
     ),
-    8
+    0
   )
   const missive = await missiveGenerator.fetchMissive()
   console.log('broadcast')
