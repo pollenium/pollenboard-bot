@@ -49,4 +49,4 @@ loopSendMessage()
 
 setTimeout(() => {
   throw new Error('Restart')
-}, 60000)
+}, 30000)
